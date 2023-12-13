@@ -1,0 +1,21 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">capaciteFoyer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let foyer of foyers">
+            <td>{{ foyer.idFoyer }}</td>
+            <td>{{ foyer.nomFoyer }}</td>
+            <td>{{ foyer.capaciteFoyer }}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

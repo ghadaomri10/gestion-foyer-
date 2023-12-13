@@ -1,0 +1,29 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #foyerForm="ngForm">
+        <div class="form-group">
+          <label for="nomFoyer">nomFoyer</label>
+          <input type="text" [(ngModel)]="foyer.nomFoyer" 
+            class="form-control" 
+            id="nomFoyer" 
+            name="nomFoyer" 
+            placeholder="Enter your nomFoyer"
+            required #nomFoyer="ngModel">
+        </div>
+        <div [hidden]="!nomFoyer.pristine" class="alert alert-danger">nomFoyer is required</div>
+        <div class="form-group">
+          <label for="capaciteFoyer">capaciteFoyer</label>
+          <input type="text" [(ngModel)]="foyer.capaciteFoyer" 
+            class="form-control" 
+            id="capaciteFoyer" 
+            name="capaciteFoyer" 
+            placeholder="Enter your capaciteFoyer "
+            required #capaciteFoyer="ngModel">
+          <div [hidden]="!capaciteFoyer.pristine" class="alert alert-danger">capaciteFoyer is required</div>
+        </div>
+        <button type="submit" [disabled]="!foyerForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+  

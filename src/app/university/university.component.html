@@ -1,0 +1,45 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">adresse</th>
+            <th scope="col">actions</th>
+            <th scope="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let university of universities">
+            <td>{{ university.idUniversite }}</td>
+            <td>{{ university.nomUniversite }}</td>
+            <td>{{ university.adresse }}</td>
+            <td>
+                <button (click)="deleteUniversity(university.idUniversite)" class="btn btn-danger">Delete</button>
+              </td>
+              <td>
+                <button (click)="updateUniversity(university)" class="btn btn-primary">Update</button>
+              </td>
+            
+          </tr>
+        </tbody>
+      </table>
+          <!-- Form to add a new university -->
+    <form #universityForm="ngForm" (ngSubmit)="addUniversity(universityForm.value)">
+        <h3>Add a New University</h3>
+        <div class="form-group">
+          <label for="nomUniversite">University Name:</label>
+          <input type="text" id="nomUniversite" name="nomUniversite" ngModel required>
+
+
+
+          <label for="adresse">University adresse:</label>
+          <input type="text" id="adresse" name="adresse" ngModel required>
+        </div>
+        <!-- Add other form fields as needed -->
+  
+        <button type="submit" class="btn btn-primary">Add University</button>
+      </form>
+    </div>
+  </div>

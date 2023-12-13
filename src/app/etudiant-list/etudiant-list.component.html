@@ -1,0 +1,42 @@
+<div class="card my-5">
+    <div class="card-body">
+        <a class="btn btn-primary mb-2" routerLink="/addetudiant">Add</a>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">date de Naissance</th>
+            <th scope="col">Cin</th>
+           
+            <th scope="col">Ecole</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let etudiant of etudiants">
+            <td appOnHover>{{ etudiants.indexOf(etudiant) }}</td>
+            <td appOnHover>{{ etudiant.nomEt }}</td>
+            <td appOnHover>{{ etudiant.prenomEt }}</td>
+            <td appOnHover>{{ etudiant.dateNaissance }}</td>   
+            <td appOnHover>{{ etudiant.cin }}</td>
+            <td appOnHover>{{ etudiant.ecole }}</td>
+            <td>
+                <a style="color: green; margin-right: 5px;" routerLink="/modifyEtudiant/{{etudiant.idEtudiant}}"><i class="bi bi-pencil"></i></a>
+                <a (click)="deleteEtudiantConfirmation(etudiants.indexOf(etudiant))" style="color: red;"><i class="bi bi-trash3"></i></a>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <app-delete-popup
+  (confirmed)="onConfirmDelete($event)"
+  *ngIf="isDeleteConfirmationVisible"
+  [message] = "'Do you really want to delete this etudiant This process cannot be undone.'"
+  >
+  </app-delete-popup>

@@ -1,0 +1,59 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #etudiantForm="ngForm">
+        <div class="form-group">
+          <label for="nom">nomEt</label>
+          <input type="text" [(ngModel)]="etudiant.nomEt" 
+            class="form-control" 
+            id="nom" 
+            name="nom" 
+            placeholder="Enter your nom"
+            required #nomEt="ngModel">
+        </div>
+        <div [hidden]="!nomEt.pristine" class="alert alert-danger">nomEtudiant is required</div>
+        <div class="form-group">
+          <label for="prenomEtudiant">prenomEtudiant</label>
+          <input type="text" [(ngModel)]="etudiant.prenomEt" 
+            class="form-control" 
+            id="prenomEtudiant" 
+            name="prenomEtudiant" 
+            placeholder="Enter your prenomEtudiant "
+            required #prenomEt="ngModel">
+          <div [hidden]="!prenomEt.pristine" class="alert alert-danger">prenomEtudiant is required</div>
+        </div>
+        <div class="form-group">
+          <label for="cin">cin</label>
+          <input type="text" [(ngModel)]="etudiant.cin" 
+            class="form-control" 
+            id="cin" 
+            name="cin" 
+            placeholder="Enter your cin "
+            required #cin="ngModel">
+          <div [hidden]="!cin.pristine" class="alert alert-danger">cin is required</div>
+        </div>
+        <div class="form-group">
+          <label for="dateNaissance">dateNaissance</label>
+          <input type="date" [(ngModel)]="etudiant.dateNaissance" 
+            class="form-control" 
+            id="dateNaissance" 
+            name="dateNaissance" 
+            placeholder="Enter your dateNaissance"
+            required #dateNaissance="ngModel">
+          <div [hidden]="!dateNaissance.pristine" class="alert alert-danger">dateNaissance is required</div>
+        </div>
+        <div class="form-group">
+          <label for="ecole">ecole</label>
+          <input type="text" [(ngModel)]="etudiant.ecole" 
+            class="form-control" 
+            id="ecole" 
+            name="ecole" 
+            placeholder="Enter your ecole "
+            required #ecole="ngModel">
+          <div [hidden]="!ecole.pristine" class="alert alert-danger">ecole is required</div>
+        </div>
+        <button type="submit" [disabled]="!etudiantForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+  
